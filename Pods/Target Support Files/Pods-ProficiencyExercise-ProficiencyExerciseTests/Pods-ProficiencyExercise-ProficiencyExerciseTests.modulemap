@@ -1,0 +1,6 @@
+framework module Pods_ProficiencyExercise_ProficiencyExerciseTests {
+  umbrella header "Pods-ProficiencyExercise-ProficiencyExerciseTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
