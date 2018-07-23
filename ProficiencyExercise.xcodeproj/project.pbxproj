@@ -11,9 +11,11 @@
 		298AAC5233550B06D53FD9CA /* Pods_ProficiencyExercise_ProficiencyExerciseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 822D8865714A4DE62831F67B /* Pods_ProficiencyExercise_ProficiencyExerciseTests.framework */; };
 		DB4D7CFC2106038C005EB4F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4D7CFB2106038C005EB4F9 /* AppDelegate.swift */; };
 		DB4D7D032106038C005EB4F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB4D7D022106038C005EB4F9 /* Assets.xcassets */; };
-		DB4D7D062106038C005EB4F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB4D7D042106038C005EB4F9 /* LaunchScreen.storyboard */; };
 		DB4D7D112106038C005EB4F9 /* ProficiencyExerciseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4D7D102106038C005EB4F9 /* ProficiencyExerciseTests.swift */; };
 		DBCB2C0E21062AF0003D920A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCB2C0D21062AF0003D920A /* HomeViewController.swift */; };
+		DBCB2C1121062FD1003D920A /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCB2C0F21062FD1003D920A /* HomeTableViewCell.swift */; };
+		DBCB2C1221062FD1003D920A /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBCB2C1021062FD1003D920A /* HomeTableViewCell.xib */; };
+		DBCB2C1821063582003D920A /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCB2C1721063582003D920A /* HomeModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,12 +38,14 @@
 		DB4D7CF82106038C005EB4F9 /* ProficiencyExercise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProficiencyExercise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB4D7CFB2106038C005EB4F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB4D7D022106038C005EB4F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		DB4D7D052106038C005EB4F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB4D7D072106038C005EB4F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB4D7D0C2106038C005EB4F9 /* ProficiencyExerciseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProficiencyExerciseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB4D7D102106038C005EB4F9 /* ProficiencyExerciseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProficiencyExerciseTests.swift; sourceTree = "<group>"; };
 		DB4D7D122106038C005EB4F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DBCB2C0D21062AF0003D920A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		DBCB2C0F21062FD1003D920A /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		DBCB2C1021062FD1003D920A /* HomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
+		DBCB2C1721063582003D920A /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,10 +111,10 @@
 		DB4D7CFA2106038C005EB4F9 /* ProficiencyExercise */ = {
 			isa = PBXGroup;
 			children = (
-				DB4D7CFB2106038C005EB4F9 /* AppDelegate.swift */,
-				DBCB2C0D21062AF0003D920A /* HomeViewController.swift */,
+				DBCB2C1521062FE8003D920A /* Controller */,
+				DBCB2C1421062FE2003D920A /* View */,
+				DBCB2C1321062FD8003D920A /* Model */,
 				DB4D7D022106038C005EB4F9 /* Assets.xcassets */,
-				DB4D7D042106038C005EB4F9 /* LaunchScreen.storyboard */,
 				DB4D7D072106038C005EB4F9 /* Info.plist */,
 			);
 			path = ProficiencyExercise;
@@ -123,6 +127,40 @@
 				DB4D7D122106038C005EB4F9 /* Info.plist */,
 			);
 			path = ProficiencyExerciseTests;
+			sourceTree = "<group>";
+		};
+		DBCB2C1321062FD8003D920A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DBCB2C1721063582003D920A /* HomeModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DBCB2C1421062FE2003D920A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DBCB2C1021062FD1003D920A /* HomeTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DBCB2C1521062FE8003D920A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DB4D7CFB2106038C005EB4F9 /* AppDelegate.swift */,
+				DBCB2C0D21062AF0003D920A /* HomeViewController.swift */,
+				DBCB2C162106300A003D920A /* CustomCells */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DBCB2C162106300A003D920A /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				DBCB2C0F21062FD1003D920A /* HomeTableViewCell.swift */,
+			);
+			path = CustomCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,7 +252,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB4D7D062106038C005EB4F9 /* LaunchScreen.storyboard in Resources */,
+				DBCB2C1221062FD1003D920A /* HomeTableViewCell.xib in Resources */,
 				DB4D7D032106038C005EB4F9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -335,6 +373,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBCB2C1821063582003D920A /* HomeModel.swift in Sources */,
+				DBCB2C1121062FD1003D920A /* HomeTableViewCell.swift in Sources */,
 				DB4D7CFC2106038C005EB4F9 /* AppDelegate.swift in Sources */,
 				DBCB2C0E21062AF0003D920A /* HomeViewController.swift in Sources */,
 			);
@@ -357,17 +397,6 @@
 			targetProxy = DB4D7D0D2106038C005EB4F9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		DB4D7D042106038C005EB4F9 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DB4D7D052106038C005EB4F9 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		DB4D7D132106038C005EB4F9 /* Debug */ = {
