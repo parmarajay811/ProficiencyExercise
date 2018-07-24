@@ -11,7 +11,6 @@
 		DB4D7CFC2106038C005EB4F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4D7CFB2106038C005EB4F9 /* AppDelegate.swift */; };
 		DB4D7D032106038C005EB4F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB4D7D022106038C005EB4F9 /* Assets.xcassets */; };
 		DBA07D5421073CD700C8CBAD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBA07D5321073CD700C8CBAD /* LaunchScreen.storyboard */; };
-		DBA07D562107422000C8CBAD /* HomeViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA07D552107422000C8CBAD /* HomeViewControllerTests.swift */; };
 		DBA07D5821074C1E00C8CBAD /* HomeModalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA07D5721074C1E00C8CBAD /* HomeModalTests.swift */; };
 		DBCB2C0E21062AF0003D920A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCB2C0D21062AF0003D920A /* HomeViewController.swift */; };
 		DBCB2C1121062FD1003D920A /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCB2C0F21062FD1003D920A /* HomeTableViewCell.swift */; };
@@ -39,7 +38,6 @@
 		DB4D7D0C2106038C005EB4F9 /* ProficiencyExerciseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProficiencyExerciseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB4D7D122106038C005EB4F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DBA07D5321073CD700C8CBAD /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		DBA07D552107422000C8CBAD /* HomeViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerTests.swift; sourceTree = "<group>"; };
 		DBA07D5721074C1E00C8CBAD /* HomeModalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModalTests.swift; sourceTree = "<group>"; };
 		DBCB2C0D21062AF0003D920A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		DBCB2C0F21062FD1003D920A /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
@@ -116,7 +114,6 @@
 			isa = PBXGroup;
 			children = (
 				DB4D7D122106038C005EB4F9 /* Info.plist */,
-				DBA07D552107422000C8CBAD /* HomeViewControllerTests.swift */,
 				DBA07D5721074C1E00C8CBAD /* HomeModalTests.swift */,
 			);
 			path = ProficiencyExerciseTests;
@@ -274,7 +271,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBA07D5821074C1E00C8CBAD /* HomeModalTests.swift in Sources */,
-				DBA07D562107422000C8CBAD /* HomeViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

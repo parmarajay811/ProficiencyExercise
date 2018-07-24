@@ -75,7 +75,7 @@ class HomeModalTests: XCTestCase {
                 let _ = response.mimeType
             {
                 XCTAssertEqual(responseURL.absoluteString, failureUrl.absoluteString, "HTTP response URL should be equal to original URL")
-                XCTAssertEqual(response.statusCode, 200, "HTTP response status code should not be 200")
+                XCTAssertEqual(response.statusCode, 404, "HTTP response status code should not be 200")
             } else {
                 XCTFail("Response was  NSHTTPURLResponse")
             }
