@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class HomeViewController: UIViewController {
 
     //Table
@@ -24,20 +25,28 @@ class HomeViewController: UIViewController {
     }
     
     func applyDefaultStyle(){
-        
         //Default style
+        
+        // Top bar
         let topBarHeight: CGFloat = UIApplication.shared.statusBarFrame.size.height
+        
+        // Navigation bar
+        let navBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: topBarHeight, width: self.view.frame.width, height: ViewNumberConstants.kNavigationBarHeightIphone))
+        self.view.addSubview(navBar);
+        let navItem = UINavigationItem(title: "temp title");
+        navBar.setItems([navItem], animated: false);
+        
         let tableViewWidth: CGFloat = self.view.frame.width
         let tableViewHeight: CGFloat = self.view.frame.height
         
         //Table frame (as content view)
-        homeTableView = UITableView(frame: CGRect(x: 0, y: topBarHeight, width: tableViewWidth, height: tableViewHeight - topBarHeight))
+        homeTableView = UITableView(frame: CGRect(x: 0, y: (ViewNumberConstants.kNavigationBarHeightIphone), width: tableViewWidth, height: tableViewHeight - (ViewNumberConstants.kNavigationBarHeightIphone)))
         
         //Register table view cell
-        let nib1 = UINib(nibName: "HomeTableViewCell", bundle: nil)
-        homeTableView.register(nib1, forCellReuseIdentifier: "HomeTableCell")
+        let nib1 = UINib(nibName: HomeTableViewCellName, bundle: nil)
+        homeTableView.register(nib1, forCellReuseIdentifier: HomeTableViewCellIdentifier)
         
-        //Main view
+        //Add table view with main view
         self.view.addSubview(homeTableView)
     }
 
@@ -47,6 +56,10 @@ class HomeViewController: UIViewController {
         //Setup the datasource delegate
         homeTableView.delegate = viewModel
         homeTableView.dataSource = viewModel
+        
+        viewModel.makeAPICall()
     }
     
 }
+
+

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		243417437051DFDADE9A381F /* Pods_ProficiencyExercise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 982D9D9B8E055185B8FC48E7 /* Pods_ProficiencyExercise.framework */; };
 		298AAC5233550B06D53FD9CA /* Pods_ProficiencyExercise_ProficiencyExerciseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 822D8865714A4DE62831F67B /* Pods_ProficiencyExercise_ProficiencyExerciseTests.framework */; };
+		DB0266642106F65D00AB9382 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0266632106F65D00AB9382 /* Constants.swift */; };
 		DB4D7CFC2106038C005EB4F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4D7CFB2106038C005EB4F9 /* AppDelegate.swift */; };
 		DB4D7D032106038C005EB4F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB4D7D022106038C005EB4F9 /* Assets.xcassets */; };
 		DB4D7D112106038C005EB4F9 /* ProficiencyExerciseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4D7D102106038C005EB4F9 /* ProficiencyExerciseTests.swift */; };
@@ -35,6 +36,8 @@
 		9548CFEAF902EDAEB29DCE65 /* Pods-ProficiencyExercise-ProficiencyExerciseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProficiencyExercise-ProficiencyExerciseTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ProficiencyExercise-ProficiencyExerciseTests/Pods-ProficiencyExercise-ProficiencyExerciseTests.release.xcconfig"; sourceTree = "<group>"; };
 		982D9D9B8E055185B8FC48E7 /* Pods_ProficiencyExercise.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProficiencyExercise.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A767D5A081697C2DC6BC1736 /* Pods-ProficiencyExercise-ProficiencyExerciseTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProficiencyExercise-ProficiencyExerciseTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProficiencyExercise-ProficiencyExerciseTests/Pods-ProficiencyExercise-ProficiencyExerciseTests.debug.xcconfig"; sourceTree = "<group>"; };
+		DB0266632106F65D00AB9382 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		DB0266672106FF3A00AB9382 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB4D7CF82106038C005EB4F9 /* ProficiencyExercise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProficiencyExercise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB4D7CFB2106038C005EB4F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB4D7D022106038C005EB4F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -71,6 +74,7 @@
 		1584A2F008F6F7CF2B7A0E69 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DB0266672106FF3A00AB9382 /* Alamofire.framework */,
 				982D9D9B8E055185B8FC48E7 /* Pods_ProficiencyExercise.framework */,
 				822D8865714A4DE62831F67B /* Pods_ProficiencyExercise_ProficiencyExerciseTests.framework */,
 			);
@@ -86,6 +90,14 @@
 				9548CFEAF902EDAEB29DCE65 /* Pods-ProficiencyExercise-ProficiencyExerciseTests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		DB0266652106F66200AB9382 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				DB0266632106F65D00AB9382 /* Constants.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		DB4D7CEF2106038B005EB4F9 = {
@@ -151,6 +163,7 @@
 				DB4D7CFB2106038C005EB4F9 /* AppDelegate.swift */,
 				DBCB2C0D21062AF0003D920A /* HomeViewController.swift */,
 				DBCB2C162106300A003D920A /* CustomCells */,
+				DB0266652106F66200AB9382 /* Common */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -275,10 +288,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ProficiencyExercise-ProficiencyExerciseTests/Pods-ProficiencyExercise-ProficiencyExerciseTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -357,9 +372,14 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ProficiencyExercise/Pods-ProficiencyExercise-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -373,6 +393,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB0266642106F65D00AB9382 /* Constants.swift in Sources */,
 				DBCB2C1821063582003D920A /* HomeModel.swift in Sources */,
 				DBCB2C1121062FD1003D920A /* HomeTableViewCell.swift in Sources */,
 				DB4D7CFC2106038C005EB4F9 /* AppDelegate.swift in Sources */,
@@ -447,7 +468,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -498,7 +519,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
