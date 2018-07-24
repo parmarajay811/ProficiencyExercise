@@ -12,6 +12,8 @@ import UIKit
 @objc protocol HomeViewControllerDelegate{
     
     func setNavBarTitle(title: String)
+    func showIndicator()
+    func hideActivityIndicator()
 }
 
 class HomeModel: NSObject {
@@ -34,7 +36,7 @@ extension HomeModel: UITableViewDataSource,UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: HomeTableViewCellIdentifier, for: indexPath) as! HomeTableViewCell
-        cell.textLabel?.numberOfLines = 0
+        cell.selectionStyle = .none
         let tableDataDictionary = self.tableRowsDataArr[indexPath.row] as! NSDictionary
         if let title = tableDataDictionary[kTitle] as? String {
             cell.titleText.text = title
@@ -61,6 +63,7 @@ extension HomeModel: UITableViewDataSource,UITableViewDelegate{
 //Server API call
 extension HomeModel{
     func makeAPICall() {
+        delegate?.showIndicator()
         let url = URL(string: baseURL)
         URLSession.shared.dataTask(with:url!) { (data, response, error) in
             if error != nil {
@@ -78,6 +81,7 @@ extension HomeModel{
                     self.delegate?.setNavBarTitle(title: navBarTitle)
                     self.tableRowsDataArr = mainResponseDict[kRows] as! NSArray
                     DispatchQueue.main.async {
+                        self.delegate?.hideActivityIndicator()
                         self.tableView?.reloadData()
                     }
                     

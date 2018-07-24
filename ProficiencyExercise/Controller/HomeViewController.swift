@@ -21,12 +21,18 @@ class HomeViewController: UIViewController, HomeViewControllerDelegate {
     var navBarTitleText = ""
     var navBar: UINavigationBar = UINavigationBar()
     var navItem = UINavigationItem()
+    var refreshDataControl = UIRefreshControl()
+    var activityView = UIActivityIndicatorView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.applyDefaultStyle()
         self.bindViewMode()
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        viewModel.makeAPICall()
     }
     
     func applyDefaultStyle(){
@@ -53,16 +59,25 @@ class HomeViewController: UIViewController, HomeViewControllerDelegate {
         
         //Add table view with main view
         self.view.addSubview(homeTableView)
+        
+        //Pull to refresh
+        refreshDataControl.attributedTitle = NSAttributedString(string: "Refreshing")
+        refreshDataControl.addTarget(self, action: #selector(refreshTableData), for: .valueChanged)
+        homeTableView.addSubview(refreshDataControl)
+        
+        //Indicator
+        activityView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        activityView.center = self.view.center
+        self.view.addSubview(activityView)
     }
 
     func bindViewMode(){
         viewModel.tableView = homeTableView
         viewModel.delegate = self
+        
         //Setup the datasource delegate
         homeTableView.delegate = viewModel
         homeTableView.dataSource = viewModel
-        
-        viewModel.makeAPICall()
     }
     
     func setNavBarTitle(title: String){
@@ -73,6 +88,19 @@ class HomeViewController: UIViewController, HomeViewControllerDelegate {
         }
     }
     
+    @objc func refreshTableData(sender:AnyObject) {
+        // Code to refresh table view
+        viewModel.makeAPICall()
+        refreshDataControl.endRefreshing()
+    }
+    
+    func showIndicator(){
+        activityView.startAnimating()
+    }
+    
+    func hideActivityIndicator(){
+        activityView.stopAnimating()
+    }
 }
 
 
