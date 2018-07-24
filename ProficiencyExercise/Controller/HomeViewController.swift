@@ -9,13 +9,18 @@
 import UIKit
 
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, HomeViewControllerDelegate {
 
     //Table
     private var homeTableView: UITableView!
     
     //View model
     let viewModel = HomeModel()
+    
+    //Create properties and variables
+    var navBarTitleText = ""
+    var navBar: UINavigationBar = UINavigationBar()
+    var navItem = UINavigationItem()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,16 +36,16 @@ class HomeViewController: UIViewController {
         let topBarHeight: CGFloat = UIApplication.shared.statusBarFrame.size.height
         
         // Navigation bar
-        let navBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: topBarHeight, width: self.view.frame.width, height: ViewNumberConstants.kNavigationBarHeightIphone))
-        self.view.addSubview(navBar);
-        let navItem = UINavigationItem(title: "temp title");
+         navBar = UINavigationBar(frame: CGRect(x: 0, y: topBarHeight, width: self.view.frame.width, height: ViewNumberConstants.kNavigationBarHeight))
+        navItem = UINavigationItem(title: navBarTitleText);
         navBar.setItems([navItem], animated: false);
+        self.view.addSubview(navBar);
         
         let tableViewWidth: CGFloat = self.view.frame.width
         let tableViewHeight: CGFloat = self.view.frame.height
         
         //Table frame (as content view)
-        homeTableView = UITableView(frame: CGRect(x: 0, y: (ViewNumberConstants.kNavigationBarHeightIphone), width: tableViewWidth, height: tableViewHeight - (ViewNumberConstants.kNavigationBarHeightIphone)))
+        homeTableView = UITableView(frame: CGRect(x: 0, y: (ViewNumberConstants.kNavigationBarHeight), width: tableViewWidth, height: tableViewHeight - (ViewNumberConstants.kNavigationBarHeight)))
         
         //Register table view cell
         let nib1 = UINib(nibName: HomeTableViewCellName, bundle: nil)
@@ -52,12 +57,20 @@ class HomeViewController: UIViewController {
 
     func bindViewMode(){
         viewModel.tableView = homeTableView
-        
+        viewModel.delegate = self
         //Setup the datasource delegate
         homeTableView.delegate = viewModel
         homeTableView.dataSource = viewModel
         
         viewModel.makeAPICall()
+    }
+    
+    func setNavBarTitle(title: String){
+        navBarTitleText = title
+        navItem = UINavigationItem(title: navBarTitleText);
+        DispatchQueue.main.async {
+            self.navBar.setItems([self.navItem], animated: false);
+        }
     }
     
 }

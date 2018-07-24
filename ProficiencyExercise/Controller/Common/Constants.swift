@@ -13,7 +13,10 @@ import Foundation
     let baseURL  = "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json"
 
     // Server Constants
-
+    let kTitle = "title"
+    let kDescription = "description"
+    let kImageURL = "imageHref"
+    let kRows = "rows"
 
     // TableView Cell
     let HomeTableViewCellName = "HomeTableViewCell"
@@ -23,12 +26,11 @@ import Foundation
     let HomeTableViewCellIdentifier = "HomeTableCell"
 
     // String Constants
-
+    let kImagePrefix = "image"
 
     // Number constants
     struct ViewNumberConstants {
-        static let kNavigationBarHeightIphone = CGFloat(64)
-        static let kNavigationBarHeightIpad = CGFloat(88)
+        static let kNavigationBarHeight = CGFloat(64)
     }
 
 
