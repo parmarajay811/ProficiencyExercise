@@ -27,17 +27,16 @@
                             <constraint firstAttribute="height" constant="100" id="imd-7i-jkN"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZML-1T-WCv">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZML-1T-WCv">
                         <rect key="frame" x="129" y="15" width="175" height="97"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="97" id="K7w-1u-Dj0"/>
-                            <constraint firstAttribute="width" constant="175" id="l60-at-7fL"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                         <variation key="heightClass=regular-widthClass=compact">
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                         </variation>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ATh-IW-2om">
@@ -54,6 +53,7 @@
                     <constraint firstItem="w9Q-sT-F3h" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="169-mD-X8I"/>
                     <constraint firstItem="ZML-1T-WCv" firstAttribute="leading" secondItem="w9Q-sT-F3h" secondAttribute="trailing" constant="13" id="JMT-0A-5lg"/>
                     <constraint firstItem="ATh-IW-2om" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="1" id="VKA-Ie-2t6"/>
+                    <constraint firstItem="ZML-1T-WCv" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="ew1-wP-p8N"/>
                     <constraint firstItem="ATh-IW-2om" firstAttribute="top" secondItem="w9Q-sT-F3h" secondAttribute="bottom" constant="8" id="fsC-xO-Tvp"/>
                     <constraint firstItem="ATh-IW-2om" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="fsJ-ES-eD4"/>
                     <constraint firstItem="w9Q-sT-F3h" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="mUP-Ak-Rhg"/>

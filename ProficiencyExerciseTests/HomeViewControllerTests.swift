@@ -1,15 +1,19 @@
 //
-//  ProficiencyExerciseTests.swift
+//  HomeViewControllerTests.swift
 //  ProficiencyExerciseTests
 //
-//  Created by Ajay Parmar on 7/23/18.
+//  Created by Ajay Parmar on 7/24/18.
 //  Copyright © 2018 Ajay Parmar. All rights reserved.
 //
 
 import XCTest
 @testable import ProficiencyExercise
 
-class ProficiencyExerciseTests: XCTestCase {
+class HomeViewControllerTests: XCTestCase {
+    
+    // Properties and variables
+    var vc: HomeViewController!
+    
     
     override func setUp() {
         super.setUp()
@@ -21,16 +25,8 @@ class ProficiencyExerciseTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testimageURL(){
+        
     }
     
 }

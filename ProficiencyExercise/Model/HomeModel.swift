@@ -8,7 +8,7 @@
 
 import UIKit
 
-
+//Custom delegate for update title
 @objc protocol HomeViewControllerDelegate{
     
     func setNavBarTitle(title: String)
@@ -22,16 +22,13 @@ class HomeModel: NSObject {
     //Create properties and variables
      var tableRowsDataArr : NSArray = []
      weak var delegate: HomeViewControllerDelegate?
+     
 }
 
 extension HomeModel: UITableViewDataSource,UITableViewDelegate{
     
     // Table view data source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        if tableRowsDataArr.count > 0 {
-//            return 6
-//        }
-//        return 0
         return tableRowsDataArr.count
     }
     
@@ -61,9 +58,8 @@ extension HomeModel: UITableViewDataSource,UITableViewDelegate{
     }
 }
 
-
+//Server API call
 extension HomeModel{
-    
     func makeAPICall() {
         let url = URL(string: baseURL)
         URLSession.shared.dataTask(with:url!) { (data, response, error) in
@@ -92,7 +88,6 @@ extension HomeModel{
 
             }.resume()
     }
-    
     
 }
 
