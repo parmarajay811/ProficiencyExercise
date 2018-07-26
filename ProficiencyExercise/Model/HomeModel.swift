@@ -14,17 +14,16 @@ import UIKit
     func setNavBarTitle(title: String)
     func showIndicator()
     func hideActivityIndicator()
+    func showAlertMessage(message: String)
 }
 
 class HomeModel: NSObject {
 
-     //Table
-     var tableView : UITableView?
-    
+    //Table
+    var tableView : UITableView?
     //Create properties and variables
-     var tableRowsDataArr : NSArray = []
-     weak var delegate: HomeViewControllerDelegate?
-     
+    weak var delegate: HomeViewControllerDelegate?
+    var tableRowsDataArr : NSArray = []
 }
 
 extension HomeModel: UITableViewDataSource,UITableViewDelegate{
@@ -53,7 +52,6 @@ extension HomeModel: UITableViewDataSource,UITableViewDelegate{
         }else{
             //Need placeholder to set here
             cell.homeTableImage.downloadImage(link: "")
-            
         }
         
         return cell
@@ -66,6 +64,11 @@ extension HomeModel{
         delegate?.showIndicator()
         let url = URL(string: baseURL)
         URLSession.shared.dataTask(with:url!) { (data, response, error) in
+            let httpURLResponse = response as? HTTPURLResponse
+            if(httpURLResponse?.statusCode != kSuccessCode){
+                self.delegate?.showAlertMessage(message: kConnectionError + (error?.localizedDescription)!)
+                return
+            }
             if error != nil {
                 print(error as Any)
             } else {
@@ -80,9 +83,9 @@ extension HomeModel{
                     let navBarTitle = mainResponseDict[kTitle] as! String
                     self.delegate?.setNavBarTitle(title: navBarTitle)
                     self.tableRowsDataArr = mainResponseDict[kRows] as! NSArray
-                    DispatchQueue.main.async {
-                        self.delegate?.hideActivityIndicator()
-                        self.tableView?.reloadData()
+                    DispatchQueue.main.async { [weak self] in
+                        self?.delegate?.hideActivityIndicator()
+                        self?.tableView?.reloadData()
                     }
                     
                 } catch {
@@ -101,13 +104,13 @@ extension UIImageView {
         contentMode = mode
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard
-                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
+                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == kSuccessCode,
                 let mimeType = response?.mimeType, mimeType.hasPrefix(kImagePrefix),
                 let data = data, error == nil,
                 let imageData = UIImage(data: data)
                 else { return }
-            DispatchQueue.main.async() {
-                self.image = imageData
+            DispatchQueue.main.async() { [weak self] in
+                self?.image = imageData
             }
             }.resume()
     }

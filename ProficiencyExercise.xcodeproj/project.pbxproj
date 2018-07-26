@@ -16,6 +16,7 @@
 		DBCB2C1121062FD1003D920A /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCB2C0F21062FD1003D920A /* HomeTableViewCell.swift */; };
 		DBCB2C1221062FD1003D920A /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBCB2C1021062FD1003D920A /* HomeTableViewCell.xib */; };
 		DBCB2C1821063582003D920A /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCB2C1721063582003D920A /* HomeModel.swift */; };
+		DBE7E8502109FCB100B6B579 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE7E84F2109FCB100B6B579 /* Reachability.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,7 @@
 		DBCB2C0F21062FD1003D920A /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		DBCB2C1021062FD1003D920A /* HomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
 		DBCB2C1721063582003D920A /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
+		DBE7E84F2109FCB100B6B579 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				DB0266632106F65D00AB9382 /* Constants.swift */,
+				DBE7E84F2109FCB100B6B579 /* Reachability.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 			files = (
 				DB0266642106F65D00AB9382 /* Constants.swift in Sources */,
 				DBCB2C1821063582003D920A /* HomeModel.swift in Sources */,
+				DBE7E8502109FCB100B6B579 /* Reachability.swift in Sources */,
 				DBCB2C1121062FD1003D920A /* HomeTableViewCell.swift in Sources */,
 				DB4D7CFC2106038C005EB4F9 /* AppDelegate.swift in Sources */,
 				DBCB2C0E21062AF0003D920A /* HomeViewController.swift in Sources */,

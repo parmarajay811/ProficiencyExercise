@@ -23,6 +23,9 @@ class HomeViewController: UIViewController, HomeViewControllerDelegate {
     var navItem = UINavigationItem()
     var refreshDataControl = UIRefreshControl()
     var activityView = UIActivityIndicatorView()
+    let checkNetwork = Reachability()
+    let alert = UIAlertController()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +35,11 @@ class HomeViewController: UIViewController, HomeViewControllerDelegate {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        viewModel.makeAPICall()
+        if  checkNetwork.isConnectedToNetwork() == true {
+            viewModel.makeAPICall()
+        } else {
+            self.showAlertMessage(message: kNetworkError)
+        }
     }
     
     func applyDefaultStyle(){
@@ -61,7 +68,7 @@ class HomeViewController: UIViewController, HomeViewControllerDelegate {
         self.view.addSubview(homeTableView)
         
         //Pull to refresh
-        refreshDataControl.attributedTitle = NSAttributedString(string: "Refreshing")
+        refreshDataControl.attributedTitle = NSAttributedString(string: kRefreshing)
         refreshDataControl.addTarget(self, action: #selector(refreshTableData), for: .valueChanged)
         homeTableView.addSubview(refreshDataControl)
         
@@ -83,14 +90,18 @@ class HomeViewController: UIViewController, HomeViewControllerDelegate {
     func setNavBarTitle(title: String){
         navBarTitleText = title
         navItem = UINavigationItem(title: navBarTitleText);
-        DispatchQueue.main.async {
-            self.navBar.setItems([self.navItem], animated: false);
+        DispatchQueue.main.async { [weak self] in
+            self?.navBar.setItems([(self?.navItem)!], animated: false);
         }
     }
     
     @objc func refreshTableData(sender:AnyObject) {
         // Code to refresh table view
-        viewModel.makeAPICall()
+        if  checkNetwork.isConnectedToNetwork() == true {
+            viewModel.makeAPICall()
+        } else {
+            self.showAlertMessage(message: kNetworkError)
+        }
         refreshDataControl.endRefreshing()
     }
     
@@ -100,6 +111,20 @@ class HomeViewController: UIViewController, HomeViewControllerDelegate {
     
     func hideActivityIndicator(){
         activityView.stopAnimating()
+    }
+    
+    func showAlertMessage(message:String){
+        //Alert
+        let alertController = UIAlertController(title: kAlertTitle, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let oKAction = UIAlertAction(title: kRetryButton, style: .default) { (action:UIAlertAction!) in
+            if  self.checkNetwork.isConnectedToNetwork() == true {
+                self.viewModel.makeAPICall()
+            } else {
+                self.showAlertMessage(message: kNetworkError)
+            }
+        }
+        alertController.addAction(oKAction)
+        self.present(alertController, animated: true, completion: nil)
     }
 }
 

@@ -26,24 +26,24 @@ class HomeModalTests: XCTestCase {
  
     func testAPICallSuccess() {
         let url = URL(string: baseURL)!
-        let urlExpectation = expectation(description: "POST \(url)")
+        let urlExpectation = expectation(description: kPost + "\(url)")
         let request = NSMutableURLRequest(url: url)
-        request.httpMethod = "POST"
+        request.httpMethod = kPost
         let config = URLSessionConfiguration.default
         config.httpAdditionalHeaders = nil
         let session = URLSession(configuration: config)
         let task = session.dataTask(with: url) { (data, response, error) in
-            XCTAssertNotNil(data, "data should not be nil")
-            XCTAssertNil(error, "error should be nil")
+            XCTAssertNotNil(data, kDataNotNill)
+            XCTAssertNil(error, kErrorNill)
             
             if let response = response as? HTTPURLResponse,
                 let responseURL = response.url,
                 let _ = response.mimeType
             {
-                XCTAssertEqual(responseURL.absoluteString, url.absoluteString, "HTTP response URL should be equal to original URL")
-                XCTAssertEqual(response.statusCode, 200, "HTTP response status code should be 200")
+                XCTAssertEqual(responseURL.absoluteString, url.absoluteString, responseURLString)
+                XCTAssertEqual(response.statusCode, kSuccessCode, kResponseStatusString)
             } else {
-                XCTFail("Response was not NSHTTPURLResponse")
+                XCTFail(kFailResponseMessage)
             }
             
             urlExpectation.fulfill()
@@ -59,25 +59,25 @@ class HomeModalTests: XCTestCase {
     
   
     func testAPICallFail() {
-        let failureUrl = URL(string: "https://dl.dropboxusercontent.com/testfail")!
-        let urlExpectation = expectation(description: "POST \(failureUrl)")
+        let failureUrl = URL(string: kFailureURL)!
+        let urlExpectation = expectation(description: kPost + "\(failureUrl)")
         let request = NSMutableURLRequest(url: failureUrl)
-        request.httpMethod = "POST"
+        request.httpMethod = kPost
         let config = URLSessionConfiguration.default
         config.httpAdditionalHeaders = nil
         let session = URLSession(configuration: config)
         let task = session.dataTask(with: failureUrl) { (data, response, error) in
-            XCTAssertNotNil(data, "data should be nil")
-            XCTAssertNil(error, "error should not be nil")
+            XCTAssertNotNil(data, kDataNill)
+            XCTAssertNil(error, kErrorNotNill)
             
             if let response = response as? HTTPURLResponse,
                 let responseURL = response.url,
                 let _ = response.mimeType
             {
-                XCTAssertEqual(responseURL.absoluteString, failureUrl.absoluteString, "HTTP response URL should be equal to original URL")
-                XCTAssertEqual(response.statusCode, 404, "HTTP response status code should not be 200")
+                XCTAssertEqual(responseURL.absoluteString, failureUrl.absoluteString, kResponseURLString)
+                XCTAssertEqual(response.statusCode, kFileNotFound, kResponseStatusString)
             } else {
-                XCTFail("Response was  NSHTTPURLResponse")
+                XCTFail(kFailResponseMessageFail)
             }
             
             urlExpectation.fulfill()
