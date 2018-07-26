@@ -107,6 +107,7 @@
 				DBCB2C1521062FE8003D920A /* Controller */,
 				DBCB2C1421062FE2003D920A /* View */,
 				DBCB2C1321062FD8003D920A /* Model */,
+				DB0266652106F66200AB9382 /* Common */,
 				DB4D7D022106038C005EB4F9 /* Assets.xcassets */,
 				DB4D7D072106038C005EB4F9 /* Info.plist */,
 			);
@@ -145,7 +146,6 @@
 				DB4D7CFB2106038C005EB4F9 /* AppDelegate.swift */,
 				DBCB2C0D21062AF0003D920A /* HomeViewController.swift */,
 				DBCB2C162106300A003D920A /* CustomCells */,
-				DB0266652106F66200AB9382 /* Common */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
